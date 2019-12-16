@@ -4,6 +4,8 @@ import java.util.Properties
 
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 
+import scala.io.Source
+
 
 object KafkaProducer {
 
@@ -18,7 +20,7 @@ object KafkaProducer {
     val producer = new KafkaProducer[String, String](properties)
 
     // 从文件中读取数据并发送
-    val bufferedSource = io.Source.fromFile("UserBehavior.csv")
+    val bufferedSource = Source.fromFile("/Users/qjiang/workspace/UserBehaviorAnalysis/HotItemsAnalysis/src/main/resources/UserBehavior.csv")
     for (line <- bufferedSource.getLines()) {
       val record = new ProducerRecord[String, String](topic, line)
       println("发送：" + line)
