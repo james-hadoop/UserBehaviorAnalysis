@@ -33,7 +33,7 @@ object NetworkFlow {
     env.setParallelism(1)
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
-    val dataStream = env.readTextFile("C:\\Users\\lenovo-aa\\Desktop\\flink\\flink-UserBehaviorAnalysis\\userBehaviorAnalysis\\NetworkFlowAnalysis\\src\\main\\resources\\apache.log")
+    val dataStream = env.readTextFile("/home/james/workspace/UserBehaviorAnalysis/NetworkFlowAnalysis/src/main/resources/apache.log")
       .map(data => {
         val dataArray = data.split(" ")
         // 定义时间转换
